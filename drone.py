@@ -10,7 +10,7 @@ camera = cv2.VideoCapture(args["video"])
 
 while True: 
     (grabbed, frame) = camera.read()
-    status = "No Targets"
+    status = "Sin objetivo(s)"
 
     if not grabbed:
         break 
@@ -41,7 +41,7 @@ while True:
 
             if keepDims and keepSolidity and keepAspectRatio:
                 cv2.drawContours (frame, [approx], -1, (0, 0, 255), 4)
-                status = "target(s) acquired"
+                status = "Objetivo(s) encontrado"
 
                 M = cv2.moments(approx)
                 (cX, cY) = (int(M["m10"] // M["m00"]), int(M["m01"] // M["m00"]))
